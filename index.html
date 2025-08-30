@@ -1,29 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Local Server Page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me — Daniel Mekonnen</title>
   <style>
+    :root {
+      --bg: #0d0f1a;
+      --card: #151a2e;
+      --text: #eef1ff;
+      --muted: #a9acc9;
+      --accent: #7c9cff;
+      --ring: rgba(124,156,255,0.4);
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(1000px 800px at 50% -20%, #202543 0%, transparent 60%),
+        radial-gradient(1000px 800px at 90% 110%, #1a2048 0%, transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font: 16px/1.7 "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 860px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      padding: 42px clamp(22px, 5vw, 48px);
       text-align: center;
-      padding: 50px;
-      background-color: #f9fafb;
-      color: #333;
+      box-shadow:
+        0 20px 70px rgba(0,0,0,0.45),
+        0 0 0 10px rgba(255,255,255,0.015) inset;
+      backdrop-filter: blur(8px);
+      animation: floatIn .9s cubic-bezier(.2,.9,.3,1);
+    }
+    @keyframes floatIn {
+      0% { opacity:0; transform: translateY(20px) scale(.95);}
+      100% { opacity:1; transform: translateY(0) scale(1);}
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto 18px;
+      padding: 8px 14px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text);
+      background: rgba(124,156,255,0.14);
+      border: 1px solid rgba(124,156,255,0.35);
+      border-radius: 999px;
     }
     h1 {
-      font-size: 3em;
-      color: #2563eb;
+      margin: 10px 0 8px;
+      font-size: clamp(30px, 4.5vw, 46px);
+      line-height: 1.1;
+    }
+    .sub {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .status {
+      display: inline-block;
+      margin: 0 0 28px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.28);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      font-weight: 600;
     }
     p {
-      font-size: 1.2em;
-      margin: 15px 0;
+      margin: 0 auto 18px;
+      max-width: 65ch;
+      letter-spacing: 0.2px;
+    }
+    .bullets {
+      margin: 14px auto 10px;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+    }
+    .cta {
+      margin-top: 26px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(124,156,255,0.45);
+      background: linear-gradient(180deg, rgba(124,156,255,0.22), rgba(124,156,255,0.08));
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 28px var(--ring);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .cta:hover { transform: translateY(-2px); box-shadow: 0 16px 40px var(--ring);}
+    .foot {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <h1>Yoo! It's working! 🚀</h1>
-  <p>My local server is running and I just made this page.</p>
-  <p>This is the coolest thing ever.</p>
+  <main class="card" role="main" aria-label="About Daniel Mekonnen">
+    <div class="badge" aria-label="From Ethiopia">🌍 From Ethiopia</div>
+    <h1>Hey, I’m <span style="color: var(--accent)">Daniel Mekonnen</span> 👋</h1>
+    <p class="sub">Web tinkerer. AI experimenter. Professional coffee consumer ☕.</p>
+
+    <div class="status">📬 Currently open to opportunities</div>
+
+    <p>Welcome to my little corner of the internet! I’m that person who enjoys wrestling with CSS until it finally listens, debugging JavaScript at 2 AM, and making websites so smooth that your grandma will say, “Wow, that’s fancy.”</p>
+
+    <p>I specialize in building sleek, fast, and modern sites that don’t just look good—they *work*. Whether it’s hand-coded or AI-assisted, I’m here to turn ideas into reality 🚀.</p>
+
+    <div class="bullets" aria-label="Skills">
+      <div class="chip">💻 Web Development — because ugly websites are a crime</div>
+      <div class="chip">🧠 Learning to Code — daily XP grind, no cheat codes</div>
+      <div class="chip">🤖 Building Websites with AI — less typing, more wow factor</div>
+      <div class="chip">🎨 Modern Design Sense — making pixels behave beautifully</div>
+    </div>
+
+    <p>When I’m not coding, you’ll find me scrolling through memes for “inspiration” or convincing friends that AI will soon help us pick better pizza toppings 🍕. (Don’t worry, I’ll still write the code myself.)</p>
+
+    <a class="cta" href="#" aria-label="Contact Daniel">
+      ✨ Let’s build something awesome
+    </a>
+
+    <div class="foot">P.S. If my code runs on the first try, I immediately check if I’m dreaming. 😎</div>
+  </main>
 </body>
 </html>
